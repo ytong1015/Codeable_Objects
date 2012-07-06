@@ -8,7 +8,7 @@ import com.datatype.Point;
 import com.primitive2d.Ellipse;
 import com.primitive2d.Line;
 import com.primitive2d.Polygon;
-import com.ui.Drawable;
+import com.primitive2d.Drawable;
 
 
 public class LSystem {
@@ -16,7 +16,7 @@ public class LSystem {
 
 }
 
-public class LTurtle {
+/*public class LTurtle {
 
 	  String todo;
 	  float len;
@@ -64,5 +64,5 @@ public class LTurtle {
 
 	}
 
-
+*/
 
