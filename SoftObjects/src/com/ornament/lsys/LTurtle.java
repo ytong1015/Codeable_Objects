@@ -18,7 +18,6 @@ public class LTurtle implements Turtle{
 	
 	  Pattern parent;
 
-	  String todo;
 	  double len;
 	  float theta;
 	  
@@ -28,15 +27,12 @@ public class LTurtle implements Turtle{
 	  Point turtlePos;
 	  double turtleRot;
 
-	  public LTurtle(String s, float l, float t, Pattern parent) {
+	  public LTurtle(float l, float t, Pattern parent) {
 		this.parent = parent;
 		
-	    todo = s;
 	    len = l; 
 	    theta = t;
-	    
-	    //position = 
-	    //rotation = 0;
+
 	    
 	    turtleRot =0;
 	    turtlePos = TurtleStruct.location;
@@ -44,7 +40,7 @@ public class LTurtle implements Turtle{
 	  } 
 
 
-	  public void render() {
+	  public void render(String todo) {
 		  System.out.println("render");
 		    for (int i = 0; i < todo.length(); i++) {
 		      char c = todo.charAt(i);
@@ -87,9 +83,9 @@ public class LTurtle implements Turtle{
 	    len *= percent; 
 	  }
 
-	  void setToDo(String s) {
+	  /*void setToDo(String s) {
 	    todo = s; 
-	  }
+	  }*/
 
 
 		@Override

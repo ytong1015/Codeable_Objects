@@ -30,6 +30,10 @@ public class LSystem extends Pattern{
   String sentence;     // The sentence (a String)
   Rule[] ruleset;      // The ruleset (an array of Rule objects)
   int generation;      // Keeping track of the generation #
+  LTurtle lturtle;
+  
+  private float width = 500;
+  private float height= 100;
   
   //String todo;
   //double len=500;
@@ -41,10 +45,11 @@ public class LSystem extends Pattern{
   
   // Construct an LSystem with a startin sentence and a ruleset
   public LSystem(String axiom, Rule[] r) {
-   super();
 	sentence = axiom;
     ruleset = r;
     generation = 0;
+    lturtle = new LTurtle(this.width,(float)Math.PI/2,this);
+
     //turtleRot =0;
     //turtlePos = TurtleStruct.location;
     //todo = sentence;
@@ -76,6 +81,8 @@ public class LSystem extends Pattern{
     sentence = nextgen.toString();
     // Increment generation
     generation++;
+    lturtle.changeLen(0.3333);
+    lturtle.render(sentence);
   }
 
   /*
