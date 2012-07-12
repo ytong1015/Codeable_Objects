@@ -41,7 +41,8 @@ public class LSystem extends Pattern{
   
   // Construct an LSystem with a startin sentence and a ruleset
   public LSystem(String axiom, Rule[] r) {
-    sentence = axiom;
+   super();
+	sentence = axiom;
     ruleset = r;
     generation = 0;
     //turtleRot =0;
