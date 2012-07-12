@@ -1,0 +1,79 @@
+package com.ornament.lsys;
+
+import java.util.Vector;
+import processing.core.PApplet;
+import com.datatype.Point;
+import com.ornament.Pattern;
+import com.primitive2d.Ellipse;
+import com.primitive2d.Line;
+import com.primitive2d.LineCollection;
+import com.primitive2d.Polygon;
+import com.primitive2d.Drawable;
+
+
+
+public class LTurtle {
+
+/*	  String todo;
+	  double len;
+	  float theta;
+	  double locX,locY,markX,markY = 0;
+	  float rotation = 0;
+	  Pattern parentPattern;
+
+	  public LTurtle(String s, float l, float t, Pattern parent) {
+	    todo = s;
+	    len = l; 
+	    theta = t;
+	    parentPattern = parent;
+	  } 
+
+	  public void render() {
+	    for (int i = 0; i < todo.length(); i++) {
+	      char c = todo.charAt(i);
+	      if (c == 'F' || c == 'G') {
+	    	//Line line = new Line(new Point(0.0,0.0),len, rotation);
+	        Line line = new Line(0.0,0.0,len,0.0);
+	        parentPattern.addLine(line);
+	        line.moveBy(len,0.0);
+	        locX = len;
+	        
+	      } 
+	      else if (c == '+') {
+	        rotation = theta;
+	        parentPattern.rotate(rotation);
+	      } 
+	      else if (c == '-') {
+	        rotation = -theta;
+	        parentPattern.rotate(rotation);
+	      } 
+	      
+	      else if (c == '[') {
+	        markX = locX;
+	        markY = locY;
+	      } 
+	      else if (c == ']') {
+	        locX = markX;
+	        locY = markY;
+
+	      }
+	    	  
+	    } 
+	  }
+
+	  void setLen(double l) {
+	    len = l; 
+	  } 
+
+	  void changeLen(double percent) {
+	    len *= percent; 
+	  }
+
+	  void setToDo(String s) {
+	    todo = s; 
+	  }
+*/
+	}
+
+
+

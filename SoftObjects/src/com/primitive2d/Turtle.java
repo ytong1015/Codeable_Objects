@@ -2,7 +2,7 @@ package com.primitive2d;
 import com.datatype.Point;
 
 
-interface Turtle {
+public interface Turtle {
 
 	public void left(double angle);
 	
@@ -15,6 +15,7 @@ interface Turtle {
 	public void penUp();
 	
 	public void penDown();
+	
 	
 	
 }

@@ -1,0 +1,71 @@
+package com.ornament.lsys;
+
+import java.util.Vector;
+import processing.core.PApplet;
+import com.datatype.Point;
+import com.primitive2d.Ellipse;
+import com.primitive2d.Line;
+import com.primitive2d.LineCollection;
+import com.primitive2d.Polygon;
+import com.primitive2d.Drawable;
+
+
+
+public class LTurtle {
+
+	  String todo;
+	  double len;
+	  float theta;
+	  double locX,locY = 0;
+	  float rotation = 0;
+
+	  public LTurtle(String s, float l, float t) {
+	    todo = s;
+	    len = l; 
+	    theta = t;
+	  } 
+
+	  public void render() {
+	    for (int i = 0; i < todo.length(); i++) {
+	      char c = todo.charAt(i);
+	      if (c == 'F' || c == 'G') {
+	        Line line = new Line(0.0,0.0,len,0.0);
+	        line.moveBy(len,0.0);
+	        locX = len;
+	        
+	      } 
+	      else if (c == '+') {
+	        rotation = theta;
+	      } 
+	      else if (c == '-') {
+	        rotation = -theta;
+	      } 
+	      
+	      else if (c == '[') {
+	        pushMatrix();
+	      } 
+	      else if (c == ']') {
+	        locX = 0;
+	        locY = 0;
+	        rotation = 0;
+	      }
+	    	  
+	    } 
+	  }
+
+	  void setLen(double l) {
+	    len = l; 
+	  } 
+
+	  void changeLen(double percent) {
+	    len *= percent; 
+	  }
+
+	  void setToDo(String s) {
+	    todo = s; 
+	  }
+
+	}
+
+
+
