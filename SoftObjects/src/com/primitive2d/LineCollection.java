@@ -7,10 +7,14 @@ import java.util.Vector;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
+import com.datatype.CmpX;
+import com.datatype.CmpY;
 import com.datatype.DCFace;
 import com.datatype.DCHalfEdge;
 import com.datatype.Point;
 import com.math.Geom;
+import com.ui.ParamSlider;
+import com.ui.ScreenManager;
 
 //base class for patterns and primitives
 public class LineCollection extends DCFace implements Drawable, Turtle{
@@ -19,25 +23,47 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	private Vector<Point> points; 
 	private Vector<Polygon> polygons;
 	private Vector<Ellipse> ellipses;
+	private Vector<ParamSlider> sliders;
+	public boolean selected;
+	private double width;
+	private double height;
+	private double rotation;
+	private double scaleX;
+	private double scaleY;
+	public boolean addToScreen;
 	
-	public LineCollection(){
+	
+	public LineCollection(boolean addToScreen){
 		this.lines = new Vector<Line>();
 		this.points = new Vector<Point>(); 
 		this.polygons = new Vector<Polygon>();
 		this.ellipses = new Vector<Ellipse>();
 		
 		this.origin = new Point(0,0);
+		this.selected = false;
+		this.sliders = new Vector<ParamSlider>();
+		this.rotation =0;
+		this.scaleX=1;
+		this.scaleY=1;
+		this.addToScreen = addToScreen;
+		if(this.addToScreen){
+			ScreenManager.addtoScreen(this);
+		}
 
 	}
 	
 	
-	public LineCollection(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
+	public LineCollection(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses,boolean addToScreen){
 		this.lines = lines;
 		this.points = points; 
 		this.polygons = polygons;
 		this.ellipses = ellipses;
-		
 		this.origin = origin;
+		this.addToScreen = addToScreen;
+		if(this.addToScreen){
+			ScreenManager.addtoScreen(this);
+		}
+
 
 	}
 	
@@ -47,6 +73,14 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	    }
 	
 	
+	public void setOriginUpperLeft(){
+		this.setOrigin(this.findBoundingBox().origin);
+	}
+	
+	public void centerOrigin(){
+		Rectangle boundingBox = this.findBoundingBox();
+		this.setOrigin(this.getWidth()/2+boundingBox.getOrigin().getX(),this.getHeight()/2+boundingBox.getOrigin().getY());
+	}
 	
 	//=============================PRIMITIVE ADD METHODS==================================//
 	
@@ -61,7 +95,10 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		//ensures there is never duplicate points in the list
 		
 	}
-	
+	//adds a line by passing in a line but does not add points to point list
+	public void addAllPoints(Vector<Point>points) {
+					this.points.addAll(points);
+			}
 	//adds a line in cart mode by specifying 4 coordinates
 	public void addLine(double startX, double startY, double endX, double endY) {
 		Line line = new Line(startX,startY,endX,endY);
@@ -82,10 +119,35 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		this.addPoint(line.end);
 	}
 	
+	//adds a line by passing in a line
+		public void addLine(Point p1, Point p2) {
+			Line line = new Line(p1.copy(),p2.copy());
+			this.lines.add(line);
+			this.addPoint(line.start);
+			this.addPoint(line.end);
+		}
+		
+	
 	//adds a line by passing in a line but does not add points to point list
 		public void addLineWithoutPoints(Line line) {
 			this.lines.add(line);
 		}
+		
+		//adds a line by passing in a line but does not add points to point list
+		public void addAllLinesWithoutPoints(Vector<Line>lines) {
+				this.lines.addAll(lines);
+		}
+		
+		//adds a line by passing in a line but does not add points to point list
+		public void addAllLines(Vector<Line>lines) {
+			this.lines.addAll(lines);		
+			for(int i=0;i<lines.size();i++){
+				this.addPoint(lines.get(i).start);
+				this.addPoint(lines.get(i).end);
+					}
+						
+				}
+
 	
 	public void addPolygon(Polygon poly){
 		this.polygons.add(poly);
@@ -96,6 +158,12 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	
 	public void addEllipse(Ellipse ellipse){
 		this.ellipses.add(ellipse);
+	}
+	
+	//add in a gui slider to modify a specific property
+	public void addSlider(String prop){
+		ParamSlider slider= new ParamSlider(this, prop);
+		this.sliders.add(slider);
 	}
 	
 	//=============================PRIMITIVE REMOVE METHODS==================================//
@@ -117,16 +185,25 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		points.remove(point);
 	}
 	
+	public void removeAllPoints(){		
+		this.points = new Vector<Point>(); 
+	}
+	
 	public void removeLine(Line line) {
 		lines.remove(line);	
-		this.removePoint(line.start);
-		this.removePoint(line.end);
+		resetAllPoints();
+		
 	}
 	
 	public void removeLine(int index) {
 		Line line = this.lines.get(index);
 		this.removeLine(line);
 	}
+	
+	public void removeAllLines(){
+		this.lines = new Vector<Line>();
+	}
+	
 	
 	public void removePolygon(Polygon poly){
 		this.polygons.remove(poly);
@@ -141,6 +218,10 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 	}
 	
+	public void removeAllPolygons(){
+		this.polygons = new Vector<Polygon>();
+	}
+	
 	public void removeEllipse(Ellipse ellipse){
 		this.ellipses.remove(ellipse);
 	}
@@ -149,6 +230,10 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		Ellipse ellipse = ellipses.get(index);
 		this.removeEllipse(ellipse);
 		
+	}
+	
+	public void removeAllEllipses(){
+		this.ellipses = new Vector<Ellipse>();
 	}
 	
 	
@@ -231,6 +316,38 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		return this.points.get(index);
 	}
 	
+	public void resetAllPoints(){
+		this.removeAllPoints();
+		   
+		   for(int i=0;i<this.lines.size();i++){
+			   points.add(this.lines.get(i).start);
+			   points.add(this.lines.get(i).end);
+		   }
+		   
+		   
+		}
+	
+	public Vector<Point> copyAllPoints(){
+	 Vector<Point> copyPoints = new Vector<Point>();
+	   
+	   for(int i=0;i<this.points.size();i++){
+		   copyPoints.add(this.points.get(i).copy());
+		   
+	   }
+	   
+	   return copyPoints;
+	}
+	public Vector<Line> copyAllLines(){
+		 Vector<Line> copyLines = new Vector<Line>();
+		   
+		   for(int i=0;i<this.lines.size();i++){
+			   copyLines.add(this.lines.get(i).copy());
+			   
+		   }
+		   
+		   return copyLines;
+		}
+	
 	public Vector<Line> getAllLines(){
 		return this.lines;
 	}
@@ -254,6 +371,47 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	public Ellipse getEllipseAt(int index){
 		return this.ellipses.get(index);
 	}
+	
+	
+	 public double getWidth(){
+		 Rectangle bb = this.findBoundingBox();
+		   this.width= Math.abs(bb.getLineAt(0).start.getX()-bb.getLineAt(0).end.getX());
+		   return this.width;
+		   
+	 }
+	   
+	 public double getHeight(){
+		 Rectangle bb = this.findBoundingBox();
+		   this.height= Math.abs(bb.getLineAt(1).start.getY()-bb.getLineAt(1).end.getY());
+		   return this.height;
+	 }
+	   
+	 public double getRotation(){
+		 
+		   return this.rotation;
+	   }
+
+	   
+	   public double getScaleX(){
+			 
+		   return this.scaleX;
+	   }
+	   
+	   public double getScaleY(){
+			 
+		   return this.scaleY;
+	   }
+	   
+	   public double getX(){
+		   return this.getOrigin().getX();
+		   
+	   }
+	   
+	   public double getY(){
+		   return this.getOrigin().getY();
+		   
+	   }
+
 	
 	//=============================TRANFORM METHODS==================================//
 	
@@ -292,12 +450,14 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	  //rotates all lines around the origin by an increment of theta;
     public void rotate(double theta) {
         this.rotate(theta,origin);
+        this.rotation+=theta;
     }
 	
 	
 	//rotates all lines around the focus by an increment of theta;
     public void rotate(double theta, Point _focus) {
     	//this.removeDuplicatePoints();
+    	this.rotation+=theta;
         for (int i = 0; i < points.size(); i++) {
 			Point currentPoint = points.get(i);
 
@@ -305,16 +465,72 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
         }
     }
     
-    public void scale(double scaleVal){
+    
+    public void scaleX(double scaleVal){
     	//this.removeDuplicatePoints();
         for (int i = 0; i < points.size(); i++) {
         	Point currentPoint = points.get(i);
-        	currentPoint.scale(scaleVal);
+        	currentPoint.scaleX(scaleVal);
         }
+        this.scaleX*=scaleVal;
+       
+    }
+    
+    public void scaleY(double scaleVal){
+    	//this.removeDuplicatePoints();
+        for (int i = 0; i < points.size(); i++) {
+        	Point currentPoint = points.get(i);
+        	currentPoint.scaleY(scaleVal);
+        }
+        this.scaleY*=scaleVal;
        
     }
 	
+	
+   public Rectangle findBoundingBox(){
+	  Vector<Point> copyPoints = this.copyAllPoints();
+	  Collections.sort(copyPoints, new CmpX());
+	  double leftX = copyPoints.get(0).getX();
+	  double rightX = copyPoints.get(copyPoints.size()-1).getX();
+	  
+	  Collections.sort(copyPoints, new CmpY());
+	  
+	  double leftY = copyPoints.get(0).getY();
+	  double rightY = copyPoints.get(copyPoints.size()-1).getY();
+	  
+	  return new Rectangle(leftX,leftY,rightX-leftX,rightY-leftY,false);
+	  
+   }
+   
+   public Point getExtremeLeftPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpX());
+		  return copyPoints.get(0);
+		
+	   }
     
+   public Point getExtremeRightPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpX());
+		  return copyPoints.get(copyPoints.size()-1);
+		
+	   }
+   
+   public Point getExtremeTopPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpY());
+		  return copyPoints.get(0);
+		
+	   }
+   
+   public Point getExtremeBottomPoint(){
+		  Vector<Point> copyPoints = this.copyAllPoints();
+		  Collections.sort(copyPoints, new CmpY());
+		  return copyPoints.get(copyPoints.size()-1);
+		
+	   }
+   
+
    
   //=============================DRAW AND PRINT METHODS==================================//
     
@@ -344,7 +560,13 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
     		
     	}
 	}
-	
+    
+    public void drawSliders(){
+    	for(int i=0;i<sliders.size();i++){
+    		sliders.get(i).draw();
+    		
+    	}
+    }
 	public void print(PApplet parent, float strokeWeight, String filename){
 		parent.beginRaw(PConstants.PDF, filename);
 		this.draw(parent, strokeWeight);
@@ -354,7 +576,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	}
 	
 	//returns a duplicate but separate copy of the line collection
-	public LineCollection copy(){
+	public LineCollection copy(boolean addToScreen){
 		Vector<Line>lines = new Vector<Line>();
 		Vector<Point>points = new Vector<Point>(); 
 		Vector<Polygon>polygons = new Vector<Polygon>();
@@ -363,7 +585,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 		for(int i=0;i<this.polygons.size();i++){
 			Vector<Line> oldPolygonLines = getPolygonAt(i).getAllLines();
-			Polygon polygon = new Polygon();
+			Polygon polygon = new Polygon(false);
 			
 			for(int j=0;j<oldPolygonLines.size();j++){
 				polygon.addLine(oldPolygonLines.get(j).copy());
@@ -388,7 +610,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 			ellipses.add(ellipse);
 		}
 		
-		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses);
+		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses,addToScreen);
 		
 		//newLineCollection.reLinkLines();
 		
@@ -406,6 +628,20 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		}
 	}
 	
+	
+	public void drawOrigin(PApplet parent){
+		 parent.stroke(255,165,0);
+		 parent.strokeWeight(4);
+		 parent.point((float)this.origin.getX(), (float)this.origin.getY());
+		 
+	 }
+	
+	public void drawBoundingBox(PApplet parent){
+		 parent.stroke(255,165,0);
+		 parent.strokeWeight(1);
+		 this.findBoundingBox().draw(parent,1);
+		 
+	 }
 	
  //=============================TURTLE METHODS==================================//
 
@@ -465,6 +701,21 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 	}
 	
+	public void resetTurtle(){
+		TurtleStruct.angle = 0;
+		TurtleStruct.pen = true;
+		TurtleStruct.location = new Point(0,0);
+	}
+	
+	public void moveTurtleTo(double x, double y){
+		
+		TurtleStruct.location = new Point(x,y);
+	}
+	
+	public void rotateTurtleTo(double theta){
+		
+		TurtleStruct.angle = theta;
+	}
 	
 
 	

@@ -1,6 +1,7 @@
 package com.primitive2d;
 
 import com.datatype.*;
+import com.ui.ScreenManager;
 
 public class Rectangle extends Polygon {
 	private double width;
@@ -11,7 +12,8 @@ public class Rectangle extends Polygon {
 	private Line right;
 
 	
-	public Rectangle(double startX, double startY, double width, double height){
+	public Rectangle(double startX, double startY, double width, double height, boolean addToScreen){
+		super(addToScreen);
 		this.origin = new Point(startX,startY);
 		
 		Point topLeft = origin.copy();
@@ -28,8 +30,19 @@ public class Rectangle extends Polygon {
 		this.addLine(left);
 		this.addLine(bottom);
 		this.addLine(right);
+		this.width= width;
+		this.height= height;
 	}
 	
-
+	
+	
+	public double getWidth(){
+		return this.height;
+	}
+	
+	public double getHeight(){
+		return this.width;
+		
+	}
 
 }

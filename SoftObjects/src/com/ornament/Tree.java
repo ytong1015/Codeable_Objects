@@ -16,13 +16,13 @@ public class Tree extends Pattern{
 
 	private Point origin = new Point(0,0);//starting angle of the tree
 	
-	public Tree(){
-		super();
+	public Tree(boolean addToScreen){
+		super(addToScreen);
 		
 	}
 	
-	public Tree(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
-		super(origin, points, lines, polygons, ellipses);
+	public Tree(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses, boolean addToScreen){
+		super(origin, points, lines, polygons, ellipses, addToScreen);
 
 	}
 	
@@ -46,16 +46,13 @@ public class Tree extends Pattern{
 		this.angleChange = angleChange;
 	}
 	
-	public void setOrigin(double x,double y){//sets the origin
-		this.origin = new Point(x,y);
-	}
-	
+
 	public void setStartingHeight(float height){//sets the starting height
 		this.startingHeight = height;
 	}
 	
 	public void generate(){
-		Line line = new Line(origin,startingHeight,startAngle);//create the trunk of the tree
+		Line line = new Line(origin.copy(),startingHeight,startAngle);//create the trunk of the tree
 		this.addLine(line);// store the line
 		this.branch(startingHeight,line.end,startAngle); //begin the branch function
 		
@@ -67,12 +64,12 @@ public class Tree extends Pattern{
 		//exit function
 		if(height >limit){ //as long as the branches are greater than the limit
 			float rightTheta = angle + angleChange; //increment the angle by the angle change
-			Line rightLine = new Line(origin,height,rightTheta); //create a "right branching" line
+			Line rightLine = new Line(origin.copy(),height,rightTheta); //create a "right branching" line
 			this.addLine(rightLine);//store the line
 			this.branch(height,rightLine.end,rightTheta); //recurse
 			
 			float leftTheta = angle - angleChange;//decrement the angle by the angle change (to branch left)
-			Line leftLine = new Line(origin,height,leftTheta); //create a "left branching line"
+			Line leftLine = new Line(origin.copy(),height,leftTheta); //create a "left branching line"
 			this.addLine(leftLine);//store the line
 			this.branch(height,leftLine.end,leftTheta); //recurse
 			
@@ -80,7 +77,7 @@ public class Tree extends Pattern{
 	}
 	
 	
-	public Tree copy(){
+	public Tree copy(boolean addToScreen){
 		Vector<Line>lines = new Vector<Line>();
 		Vector<Point>points = new Vector<Point>(); 
 		Vector<Polygon>polygons = new Vector<Polygon>();
@@ -102,7 +99,7 @@ public class Tree extends Pattern{
 		
 		
 		
-		Tree newTree =  new Tree(newOrigin, points, lines,polygons,ellipses);
+		Tree newTree =  new Tree(newOrigin, points, lines,polygons,ellipses, addToScreen);
 		
 		
 		return newTree;

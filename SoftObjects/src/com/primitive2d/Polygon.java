@@ -9,24 +9,34 @@ import com.datatype.CmpY;
 import com.datatype.DCFace;
 import com.datatype.Point;
 import com.math.Geom;
+import com.math.PolyBoolean;
+import com.ornament.Pattern;
+import com.ornament.Tree;
 
 public class Polygon extends LineCollection{
 
-	public Polygon(){
-		super();
+	public Polygon(boolean addToScreen){
+		super(addToScreen);
 		
 	}
 	
-	public Polygon(int sides, double length){
-		super();
-		double angle = 360/sides;
-		for(int i=0;i<sides;i++){
+	public Polygon(int sides, double length, double x, double y, boolean addToScreen){
+		super(addToScreen);
+		double angle = 360.0/(double)sides;
+		for(int i=0;i<sides-1;i++){
 			  this.forward(length);
 			  this.right(angle);
 			}
+		this.closePoly();
+		this.setOriginUpperLeft();
+		this.moveTo(x, y);
+		this.resetTurtle();
 		
 	}
 	
+	
+	
+
 	//polygon add point method that automatically links up points into lines
 	@Override
 	public void addPoint(double x,double y){
@@ -60,6 +70,38 @@ public class Polygon extends LineCollection{
 	}
 	
 	
+	public void clipPattern(Pattern pattern){
+		System.out.println("clipping to shape with "+this.getAllPoints().size()+" verticies");
+		this.orderEdges();
+		Vector<Line> patternEdges = pattern.getAllLines();
+		Vector<Line> patternNewEdges = new Vector<Line>();
+		pattern.removeAllPoints();
+		
+		for(int i=0;i<patternEdges.size();i++){
+			try{
+				Line newEdge = PolyBoolean.clipInBorder(patternEdges.get(i),this);
+			
+			if(newEdge!=null){
+				patternNewEdges.add(newEdge);
+				pattern.addPoint(newEdge.start);
+				pattern.addPoint(newEdge.end);
+			}
+			}
+			catch (Exception e){
+				System.out.println("missed edge at:"+i);
+			}
+			
+		}
+		
+		pattern.setAllLines(patternNewEdges);
+	}
+	
+	
+	/* public void centerOrigin(){
+	    	this.orderEdges();
+	    	this.origin = Geom.findCentroid(this).copy();
+	    }*/
+	
 	 public void orderEdges(){
 	    	
 	    	Vector<Line> currentLines = this.getAllLines();
@@ -69,22 +111,31 @@ public class Polygon extends LineCollection{
 	    	//find case based on verticies
 	    	
 	    	Vector<Point> verticies = Geom.removeDuplicateVerts(this.getAllPoints());
-	    	System.out.println("verticies num="+verticies.size());
-	    	System.out.println("points num="+this.getAllPoints().size());
+	    	//System.out.println("verticies num="+verticies.size());
+	    	//System.out.println("points num="+this.getAllPoints().size());
+	    	/*for(int i=0;i<verticies.size();i++){
+	    		//System.out.println("vert="+verticies.get(i).getX()+","+verticies.get(i).getY());
+	    	}*/
+	    	
+	    	/*for(int i=0;i<getAllPoints().size();i++){
+	    		//System.out.println("point="+getAllPoints().get(i).getX()+","+getAllPoints().get(i).getY());
+	    	}*/
+	    	
 	    	if(currentLines.size()==1){ //only 1 edge
-	    		System.out.println("there is only one edge");
+	    		//System.out.println("there is only one edge");
 	    		//TODO: handle this case
 	    	}
 	    	
+	    	
 	    	else if ((this.getAllPoints().size()/2.0)-verticies.size()<0){ //incomplete shape missing one edge
-	    		System.out.println("missing one edge");
+	    		//System.out.println("missing one edge");
 	    		this.closePoly();
 	    		this.orderEdges();
 	    		return;
 	    	}
 	    	
 	    	else if((this.getAllPoints().size()/2.0)-verticies.size()==0){ //complete shape
-	    		System.out.println("complete shape");
+	    		//System.out.println("complete shape");
 	    		
 	    		sortEdges(verticies,currentLines);
 	    	}
@@ -205,8 +256,8 @@ public class Polygon extends LineCollection{
 	}
 	
 	@Override
-	public Polygon copy(){
-		Polygon poly = new Polygon();
+	public Polygon copy(boolean addToScreen){
+		Polygon poly = new Polygon(addToScreen);
 		
 		Vector<Line> lines = this.getAllLines();
 		for(int i=0;i<lines.size();i++){
