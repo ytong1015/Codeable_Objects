@@ -22,6 +22,8 @@ package com.ui;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Vector;
 
 import processing.core.PApplet;
@@ -33,10 +35,17 @@ public class ScreenManager {
 	public static boolean drawBounding= false;
 	public static PApplet parent;
 	private static boolean pan=false;
+	private static boolean zoom=false;
+	
+	private static int zoomKey = 90;
+	private static int normalizeKey = 78;
+	private static int printKey = 80;
 	private static double posX = 0;
 	private static double posY = 0;
+	private static double posZ = 0;
 	private static double lastMouseX=0;
 	private static double lastMouseY=0;
+	private String filename = "foo";
 	
 	public ScreenManager(PApplet parent){
 		this.parent = parent;
@@ -56,10 +65,12 @@ public class ScreenManager {
 	public void draw() {
 		parent.background(255);
 		
-		parent.translate((float)posX,(float)posY);
+		parent.translate((float)posX,(float)posY,(float)posZ);
+	
 		
 		for(int i=0;i<drawables.size();i++){
-			drawables.get(i).draw(parent, 1);
+			parent.stroke(drawables.get(i).r,drawables.get(i).g,drawables.get(i).b);
+			drawables.get(i).draw(parent, drawables.get(i).strokeWeight);
 			drawables.get(i).drawOrigin(parent);
 			//drawables.get(i).drawBoundingBox(parent);
 			if(drawables.get(i).selected){
@@ -67,6 +78,21 @@ public class ScreenManager {
 			}
 		}
 				
+	}
+	
+	public void print() {
+		parent.translate(0,0,0);
+		parent.beginRaw(PApplet.PDF, this.filename + new Date().getTime()+".pdf");
+		
+		
+		for(int i=0;i<drawables.size();i++){
+			parent.stroke(drawables.get(i).r,drawables.get(i).g,drawables.get(i).b);
+			drawables.get(i).draw(parent, drawables.get(i).strokeWeight);
+		}
+		 
+		
+		parent.endRaw();
+		
 	}
 	
 	public void keyEvent(KeyEvent event){
@@ -136,15 +162,31 @@ public class ScreenManager {
 			posX+= parent.mouseX-lastMouseX;
 			posY+= parent.mouseY-lastMouseY;
 		}
+		if(zoom){
+			posZ+=parent.mouseY-lastMouseY;
+		}
 		lastMouseX= parent.mouseX;
 		lastMouseY = parent.mouseY;
 		
 	}
 
 	private void keyPressed(int keyCode){
-		
+		System.out.println(keyCode);
 		if(keyCode==KeyEvent.VK_SPACE){
 			pan=true;
+			zoom=false;
+		}
+		if(keyCode==zoomKey){
+			zoom=true;
+			pan=false;
+		}
+		if(keyCode==normalizeKey){
+			posX=0;
+			posY=0;
+			posZ=0;
+		}
+		if(keyCode==printKey){
+			this.print();
 		}
 	}
 	
@@ -152,12 +194,13 @@ public class ScreenManager {
 		if(keyCode==KeyEvent.VK_SPACE){
 			pan=false;
 		}
+		if(keyCode==zoomKey){
+			zoom=false;
+		}
+	
 	}
 	
-	public void print() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 
