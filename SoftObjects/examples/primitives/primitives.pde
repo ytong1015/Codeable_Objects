@@ -33,7 +33,7 @@ void setup(){
  pentagon.setStrokeWeight(5); //sets the stroke weight of the polygon to 5 pixels
  
  //Curves 
- Curve curve = new Curve(200,200,400,200,300,100); //creates a curve at a starting point of 200,200, an ending point of 400,200, a control point at 300,100
+//creates a curve at a starting point of 200,200, an ending point of 400,200, a control point at 300,100
  curve.addToScreen(); 
  curve.addCurve(600,200,500,300);//adds on an additional curve;
  curve.drawPoints();//shows the points on the curve

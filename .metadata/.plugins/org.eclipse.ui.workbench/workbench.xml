@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
-<window height="876" width="1127" x="161" y="22">
+<window height="878" width="1436" x="190" y="22">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -18,7 +18,7 @@
 <coolItem id="org.eclipse.jdt.ui.PropertiesFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.pde.ui.buildEditor" itemType="typeToolBarContribution" x="32" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="84" y="22"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="120" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -46,6 +46,7 @@
 <part id="9"/>
 <part id="10"/>
 <part id="11"/>
+<part id="12"/>
 </presentation>
 </folder>
 </info>
@@ -63,15 +64,15 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LineCollection.java" partName="LineCollection.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/primitive2d/LineCollection.java" title="LineCollection.java" tooltip="SoftObjects/src/com/primitive2d/LineCollection.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/primitive2d/LineCollection.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1311" selectionTopPixel="408"/>
+<editorState selectionHorizontalPixel="0" selectionLength="15" selectionOffset="9299" selectionTopPixel="5820"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Rule.java" partName="Rule.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/ornament/lsys/Rule.java" title="Rule.java" tooltip="SoftObjects/src/com/ornament/lsys/Rule.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/ornament/lsys/Rule.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="26" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LSystem.java" partName="LSystem.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/ornament/lsys/LSystem.java" title="LSystem.java" tooltip="SoftObjects/src/com/ornament/lsys/LSystem.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LSystem.java" partName="LSystem.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/ornament/lsys/LSystem.java" title="LSystem.java" tooltip="SoftObjects/src/com/ornament/lsys/LSystem.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/ornament/lsys/LSystem.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="533" selectionTopPixel="80"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1050" selectionTopPixel="79"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Line.java" partName="Line.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/primitive2d/Line.java" title="Line.java" tooltip="SoftObjects/src/com/primitive2d/Line.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/primitive2d/Line.java"/>
@@ -85,17 +86,21 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/primitive2d/TurtleStruct.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="61" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="TreeSimple.pde" partName="TreeSimple.pde" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/examples/TreeSimple/TreeSimple.pde" title="TreeSimple.pde" tooltip="SoftObjects/examples/TreeSimple/TreeSimple.pde" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/examples/TreeSimple/TreeSimple.pde"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="163" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LTurtle.java" partName="LTurtle.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/ornament/lsys/LTurtle.java" title="LTurtle.java" tooltip="SoftObjects/src/com/ornament/lsys/LTurtle.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/ornament/lsys/LTurtle.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="940" selectionTopPixel="178"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1838" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Curve.java" partName="Curve.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/primitive2d/Curve.java" title="Curve.java" tooltip="SoftObjects/src/com/primitive2d/Curve.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/primitive2d/Curve.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="634" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6505" selectionTopPixel="3231"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Polygon.java" partName="Polygon.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/primitive2d/Polygon.java" title="Polygon.java" tooltip="SoftObjects/src/com/primitive2d/Polygon.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/primitive2d/Polygon.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ScreenManager.java" partName="ScreenManager.java" path="/Users/yitong/Documents/workspace/Codeable_Objects/SoftObjects/src/com/ui/ScreenManager.java" title="ScreenManager.java" tooltip="SoftObjects/src/com/ui/ScreenManager.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SoftObjects/src/com/ui/ScreenManager.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4653" selectionTopPixel="2550"/>
 </editor>
 </editors>
 <views>
@@ -108,7 +113,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.resourceField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (100 of 231 items)"/>
+<category IMemento.internal.id="Warnings (100 of 250 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="1354"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -287,166 +292,166 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/ornament/lsys/LTurtle.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/ornament/lsys/LSystem.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/LineCollection.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/ornament/Pattern.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/Turtle.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/LineCollection.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/Polygon.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/ui/ScreenManager.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/ornament/lsys/LTurtle.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/TurtleStruct.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/SoftObjects/examples/TreeSimple/TreeSimple.pde"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/Curve.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/ornament/lsys/LTurtle.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/ornament/lsys/LSystem.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/LineCollection.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/SoftObjects/src/com/primitive2d/Turtle.java"/>
 </editors>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="1060" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="1">
-<position info="not_deleted" x="2895" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="1060" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="1162" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="767" y="0"/>
-</item>
-<item historyLabel="LineCollection.java" index="2">
-<position info="not_deleted" x="10266" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="1582" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="1">
-<position info="not_deleted" x="2895" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="415" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="1">
-<position info="not_deleted" x="2895" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="415" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="375" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="415" y="0"/>
-</item>
-<item historyLabel="LineCollection.java" index="2">
-<position info="not_deleted" x="10266" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="1">
-<position info="not_deleted" x="2895" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="375" y="0"/>
-</item>
-<item historyLabel="Pattern.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Pattern.java" index="3">
-<position info="not_deleted" x="349" y="0"/>
-</item>
-<item historyLabel="Turtle.java" index="4">
-<position info="not_deleted" x="273" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="375" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="375" y="0"/>
-</item>
-<item historyLabel="Turtle.java" index="4">
-<position info="not_deleted" x="61" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="375" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="409" y="6"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="390" y="7"/>
-</item>
-<item historyLabel="Turtle.java" index="4">
-<position info="not_deleted" x="61" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="390" y="7"/>
-</item>
-<item historyLabel="LSystem.java" index="1">
-<position info="not_deleted" x="2895" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="390" y="7"/>
-</item>
-<item historyLabel="LineCollection.java" index="2">
-<position info="not_deleted" x="10266" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="390" y="7"/>
-</item>
-<item historyLabel="LineCollection.java" index="2">
-<position info="not_deleted" x="9904" y="1007"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="2331" y="0"/>
-</item>
-<item historyLabel="TurtleStruct.java" index="5">
-<position info="not_deleted" x="61" y="0"/>
-</item>
-<item historyLabel="Turtle.java" index="4">
-<position info="not_deleted" x="61" y="0"/>
-</item>
-<item historyLabel="TurtleStruct.java" index="5">
-<position info="not_deleted" x="61" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="0">
-<position info="not_deleted" x="940" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="1">
-<position info="not_deleted" x="441" y="0"/>
-</item>
-<item historyLabel="Curve.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Curve.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="7">
-<position info="not_deleted" x="940" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="8">
-<position info="not_deleted" x="931" y="0"/>
-</item>
-<item historyLabel="LTurtle.java" index="7">
-<position info="not_deleted" x="940" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="8">
-<position info="not_deleted" x="931" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="8">
-<position/>
-</item>
-<item historyLabel="LineCollection.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="LineCollection.java" index="9">
-<position info="not_deleted" x="1315" y="0"/>
-</item>
-<item historyLabel="LSystem.java" index="8">
-<position info="not_deleted" x="767" y="0"/>
-</item>
-<item historyLabel="LineCollection.java" index="9">
+<item historyLabel="LineCollection.java" index="1">
 <position info="not_deleted" x="1311" y="0"/>
 </item>
-<item active="true" historyLabel="LSystem.java" index="8">
+<item historyLabel="LSystem.java" index="0">
 <position info="not_deleted" x="767" y="0"/>
+</item>
+<item historyLabel="LineCollection.java" index="2">
+<position info="not_deleted" x="1655" y="64"/>
+</item>
+<item historyLabel="Polygon.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="4">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="Polygon.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="533" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="865" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="564" y="6"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="754" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="940" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="754" y="0"/>
+</item>
+<item historyLabel="TurtleStruct.java" index="6">
+<position info="not_deleted" x="61" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="940" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="572" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="675" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1168" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="675" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1168" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1089" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1159" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="675" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1159" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="2865" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="675" y="0"/>
+</item>
+<item historyLabel="TreeSimple.pde" index="7">
+<position info="not_deleted" x="163" y="0"/>
+</item>
+<item historyLabel="TurtleStruct.java" index="6">
+<position info="not_deleted" x="61" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="867" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="675" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="2209" y="0"/>
+</item>
+<item historyLabel="TurtleStruct.java" index="6">
+<position info="not_deleted" x="61" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="439" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1146" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="439" y="0"/>
+</item>
+<item historyLabel="LTurtle.java" index="5">
+<position info="not_deleted" x="1838" y="0"/>
+</item>
+<item historyLabel="LineCollection.java" index="2">
+<position info="not_deleted" x="9175" y="15"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1146" y="0"/>
+</item>
+<item historyLabel="ScreenManager.java" index="4">
+<position info="not_deleted" x="4577" y="0"/>
+</item>
+<item historyLabel="LSystem.java" index="0">
+<position info="not_deleted" x="1050" y="0"/>
+</item>
+<item historyLabel="TurtleStruct.java" index="6">
+<position info="not_deleted" x="61" y="0"/>
+</item>
+<item historyLabel="Curve.java" index="8">
+<position info="not_deleted" x="634" y="0"/>
+</item>
+<item historyLabel="LineCollection.java" index="2">
+<position info="not_deleted" x="9299" y="15"/>
+</item>
+<item historyLabel="ScreenManager.java" index="4">
+<position info="not_deleted" x="4653" y="0"/>
+</item>
+<item historyLabel="Curve.java" index="8">
+<position info="not_deleted" x="681" y="0"/>
+</item>
+<item historyLabel="Curve.java" index="8">
+<position info="not_deleted" x="722" y="0"/>
+</item>
+<item historyLabel="Curve.java" index="8">
+<position info="not_deleted" x="6144" y="9"/>
+</item>
+<item historyLabel="Turtle.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Curve.java" index="8">
+<position info="not_deleted" x="6505" y="0"/>
+</item>
+<item active="true" historyLabel="ScreenManager.java" index="4">
+<position info="not_deleted" x="4653" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -454,6 +459,12 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="right"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -462,10 +473,35 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Turtle.java" tooltip="SoftObjects/src/com/primitive2d/Turtle.java">
+<persistable path="/SoftObjects/src/com/primitive2d/Turtle.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="clippedPattern.pde" tooltip="SoftObjects/examples/clippedPattern/clippedPattern.pde">
+<persistable path="/SoftObjects/examples/clippedPattern/clippedPattern.pde"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="primitives.pde" tooltip="SoftObjects/examples/primitives/primitives.pde">
+<persistable path="/SoftObjects/examples/primitives/primitives.pde"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="SVGImport.pde" tooltip="SoftObjects/examples/SVGImport/SVGImport.pde">
+<persistable path="/SoftObjects/examples/SVGImport/SVGImport.pde"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="simplePattern.pde" tooltip="SoftObjects/examples/simplePattern/simplePattern.pde">
+<persistable path="/SoftObjects/examples/simplePattern/simplePattern.pde"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="template.pde" tooltip="SoftObjects/examples/template/template.pde">
+<persistable path="/SoftObjects/examples/template/template.pde"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ScreenManager.java" tooltip="SoftObjects/src/com/ui/ScreenManager.java">
+<persistable path="/SoftObjects/src/com/ui/ScreenManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Polygon.java" tooltip="SoftObjects/src/com/primitive2d/Polygon.java">
+<persistable path="/SoftObjects/src/com/primitive2d/Polygon.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Curve.java" tooltip="SoftObjects/src/com/primitive2d/Curve.java">
 <persistable path="/SoftObjects/src/com/primitive2d/Curve.java"/>
 </file>
@@ -481,35 +517,11 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Pattern.java" tooltip="SoftObjects/src/com/ornament/Pattern.java">
 <persistable path="/SoftObjects/src/com/ornament/Pattern.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Turtle.java" tooltip="SoftObjects/src/com/primitive2d/Turtle.java">
-<persistable path="/SoftObjects/src/com/primitive2d/Turtle.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tree.java" tooltip="SoftObjects/src/com/ornament/Tree.java">
 <persistable path="/SoftObjects/src/com/ornament/Tree.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Line.java" tooltip="SoftObjects/src/com/primitive2d/Line.java">
 <persistable path="/SoftObjects/src/com/primitive2d/Line.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LSystem.java" tooltip="SoftObjects/src/com/math/LSystem.java">
-<persistable path="/SoftObjects/src/com/math/LSystem.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LSystem.java" tooltip="SoftObjects/src/com/ornament/lsys/LSystem.java">
-<persistable path="/SoftObjects/src/com/ornament/lsys/LSystem.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ant.ui.internal.editor.AntEditor" name="build.xml" tooltip="SoftObjects/resources/build.xml">
-<persistable path="/SoftObjects/resources/build.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Rule.java" tooltip="SoftObjects/src/com/ornament/lsys/Rule.java">
-<persistable path="/SoftObjects/src/com/ornament/lsys/Rule.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LSystem.java" tooltip="SoftObjects/src/com/ornament/LSystem.java">
-<persistable path="/SoftObjects/src/com/ornament/LSystem.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LineCollection.java" tooltip="SoftObjects/src/com/primitive2d/LineCollection.java">
-<persistable path="/SoftObjects/src/com/primitive2d/LineCollection.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PolyBoolean.java" tooltip="SoftObjects/src/com/math/PolyBoolean.java">
-<persistable path="/SoftObjects/src/com/math/PolyBoolean.java"/>
 </file>
 </mruList>
 </workbench>
