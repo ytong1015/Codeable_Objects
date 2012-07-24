@@ -1,6 +1,6 @@
 package com.ornament.lsys;
 
-import java.util.Vector;
+import java.util.*;
 
 import processing.core.PApplet;
 import com.datatype.Point;
@@ -17,75 +17,94 @@ import com.primitive2d.TurtleStruct;
 public class LTurtle implements Turtle{
 	
 	  Pattern parent;
-
+	  
+	  String todo;
 	  double len;
 	  float theta;
 	  
-	  //Point position;
-	  //double rotation;
-	  
-	  Point turtlePos;
-	  double turtleRot;
+      Stack<TurtleStatus> marks;
 
-	  public LTurtle(float l, float t, Pattern parent) {
+
+	  
+	  //Point turtlePos;
+	  //double turtleRot;
+
+	  public LTurtle(String s,float l, float t, Pattern parent) {
+	  //public LTurtle(float l, float t, Pattern parent) {
 		this.parent = parent;
 		
+		todo = s;
 	    len = l; 
 	    theta = t;
 
+	    //turtleRot =0;
+	    //turtlePos = TurtleStruct.location;
 	    
-	    turtleRot =0;
-	    turtlePos = TurtleStruct.location;
+	    marks = new Stack<TurtleStatus>();
 	    
 	  } 
 
 
-	  public void render(String todo) {
+	  public void render() {
 		  System.out.println("render");
 		    for (int i = 0; i < todo.length(); i++) {
 		      char c = todo.charAt(i);
 		      if (c == 'F' || c == 'G') {
-		    	TurtleStruct.pen = true;
+		    	penDown();
 		        forward(len);
-		        TurtleStruct.location = new Point(len,0);
-		        TurtleStruct.pen = false;
-		        forward(len);
-		        
-		      } 
+		        System.out.println(TurtleStruct.location.toString());/////////////////////////////////
+		      }
 		      else if (c == '+') {
-		    	 TurtleStruct.angle += theta;
 		    	 right(Math.toDegrees(theta));
 		    	 
+		    	 System.out.println("turn right");
+		    	 
 		      } 
-		      else if (c == '-') {
-		    	 TurtleStruct.angle += -theta;
+		      else if (c =='-') {
 		    	 left(Math.toDegrees(theta));
+		    	 
+		    	 System.out.println("turn left");
+		    	 
 		      } 
 		      
 		      else if (c == '[') {
-		        turtlePos = TurtleStruct.location;
-		        turtleRot = TurtleStruct.angle;
+		    	  
+		        //turtlePos = TurtleStruct.location;
+		        //turtleRot = TurtleStruct.angle;
+		        
+		        marks.push(new TurtleStatus(TurtleStruct.location,TurtleStruct.angle));
+		        
+		        //System.out.println("push");
+		        
 		      } 
 		      else if (c == ']') {
-	            TurtleStruct.location = turtlePos;
-	            TurtleStruct.angle = turtleRot;
+	            //TurtleStruct.location = turtlePos;
+	            //TurtleStruct.angle = turtleRot;
+	            
+	            TurtleStruct.location = marks.peek().getPosMark();
+	            TurtleStruct.angle = marks.pop().getRotMark();
+
+	            
+		        //System.out.println("pop");
+	            
 		      }
 		    	  
 		    } 
 		  }
 	  
 	  
-	  void setLen(double l) {
+	  public void setLen(double l) {
 	    len = l; 
 	  } 
 
-	  void changeLen(double percent) {
+	  public void changeLen(double percent) {
 	    len *= percent; 
 	  }
 
-	  /*void setToDo(String s) {
+
+	  public void setToDo(String s) {
 	    todo = s; 
-	  }*/
+	  }
 
 
 		@Override
@@ -123,7 +142,6 @@ public class LTurtle implements Turtle{
 		public void back(double dist) {
 			Line newLine = new Line(TurtleStruct.location.copy(), -dist, TurtleStruct.angle);
 			if(TurtleStruct.pen){
-				
 				parent.addLine(newLine);
 			}
 			TurtleStruct.location = newLine.end;

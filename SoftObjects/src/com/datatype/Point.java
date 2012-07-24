@@ -228,6 +228,13 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 		return new Point(x,y);
 	}
 
+	///////////////////////////////////
+	public String toString(){
+       return "("+ x + "," + y +")";
+	 
+	}
+	
+	
 	@Override
 	public void draw(PApplet parent, float strokeWeight) {
 		parent.strokeWeight(strokeWeight);

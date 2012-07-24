@@ -29,34 +29,28 @@ public class LSystem extends Pattern{
 
   String sentence;     // The sentence (a String)
   Rule[] ruleset;      // The ruleset (an array of Rule objects)
-  int generation;      // Keeping track of the generation #
+  int generation;
   LTurtle lturtle;
   
   private float width = 500;
-  private float height= 100;
-  
-  //String todo;
-  //double len=500;
-  //double theta=Math.PI/2;
- 
-  //Point turtlePos;
-  //double turtleRot;
+  private float height= 700;
   
   
   // Construct an LSystem with a startin sentence and a ruleset
-  public LSystem(String axiom, Rule[] r) {
+  public LSystem(String axiom, Rule[] r, int gen) {
 	sentence = axiom;
     ruleset = r;
-    generation = 0;
-    lturtle = new LTurtle(this.width,(float)Math.PI/2,this);
+    generation = gen;
+    lturtle = new LTurtle(axiom,this.width,(float)Math.PI/2,this);
+    TurtleStruct.location = new Point(0,height-1);
+    lturtle.render();
 
-    //turtleRot =0;
-    //turtlePos = TurtleStruct.location;
-    //todo = sentence;
   }
 
   // Generate the next generation
   public void generate() {
+	for(int g = 0; g< generation; g++){
+	  
     // An empty StringBuffer that we will fill
     StringBuffer nextgen = new StringBuffer();
     // For every character in the sentence
@@ -79,52 +73,22 @@ public class LSystem extends Pattern{
     }
     // Replace sentence
     sentence = nextgen.toString();
+    
+    
+    //System.out.println("g="+g+","+"sentence="+sentence+"\n\n\n");///////////////////////////// 
+    
     // Increment generation
-    generation++;
-    lturtle.changeLen(0.3333);
-    lturtle.render(sentence);
-  }
-
-  /*
-  public void render() {
-	  System.out.println("render");
-	    for (int i = 0; i < todo.length(); i++) {
-	      char c = todo.charAt(i);
-	      if (c == 'F' || c == 'G') {
-	    	TurtleStruct.pen = true;
-	        forward(len);
-	        TurtleStruct.location = new Point(len,0);
-	        TurtleStruct.pen = false;
-	        forward(len);
-	        
-	      } 
-	      else if (c == '+') {
-	    	 TurtleStruct.angle += theta;
-	    	 right(Math.toDegrees(theta));
-	    	 
-	      } 
-	      else if (c == '-') {
-	    	 TurtleStruct.angle += -theta;
-	    	 left(Math.toDegrees(theta));
-	      } 
-	      
-	      else if (c == '[') {
-	        turtlePos = TurtleStruct.location;
-	        turtleRot = TurtleStruct.angle;
-	      } 
-	      else if (c == ']') {
-            TurtleStruct.location = turtlePos;
-            TurtleStruct.angle = turtleRot;
-	      }
-	    	  
-	    } 
+    lturtle.setToDo(sentence);
+    lturtle.changeLen(0.3333);   
+    TurtleStruct.location = new Point(0,height-1);
+    TurtleStruct.angle = 0;
+    lturtle.render();
 	  }
+  }
   
-  */
-  
-  
-  
-  
+
+
+ 
   public String getSentence() {
     return sentence; 
   }
