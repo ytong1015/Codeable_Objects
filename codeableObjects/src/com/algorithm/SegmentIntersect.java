@@ -20,8 +20,6 @@
 
 package com.algorithm;
 
-import com.datastruct.SegEvent;
-import com.datastruct.SegEventSorter;
 import com.datastruct.SegmentTree;
 import com.math.CompPoint;
 import com.math.Intersection;

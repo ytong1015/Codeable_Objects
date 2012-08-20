@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import com.datatype.Point;
 import com.primitive2d.Ellipse;
+import com.primitive2d.Intersection;
 import com.primitive2d.Line;
 import com.primitive2d.Polygon;
 
@@ -21,8 +22,8 @@ public class Tree extends Pattern{
 		
 	}
 	
-	public Tree(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
-		super(origin, points, lines, polygons, ellipses);
+	public Tree(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses, Vector<Intersection> intersections){
+		super(origin, points, lines, polygons, ellipses,intersections);
 
 	}
 	
@@ -82,6 +83,7 @@ public class Tree extends Pattern{
 		Vector<Point>points = new Vector<Point>(); 
 		Vector<Polygon>polygons = new Vector<Polygon>();
 		Vector<Ellipse>ellipses = new Vector<Ellipse>();
+		Vector<Intersection>intersections = new Vector<Intersection>();
 		Point newOrigin = this.origin.copy();
 		
 		
@@ -99,7 +101,7 @@ public class Tree extends Pattern{
 		
 		
 		
-		Tree newTree =  new Tree(newOrigin, points, lines,polygons,ellipses);
+		Tree newTree =  new Tree(newOrigin, points, lines,polygons,ellipses,intersections);
 		
 		
 		return newTree;

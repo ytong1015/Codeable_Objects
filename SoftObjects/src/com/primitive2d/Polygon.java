@@ -42,6 +42,31 @@ public class Polygon extends LineCollection{
 		
 	}
 	
+	//////////////////////////////////////////////// Yi ADD ON
+	public void setPolygon(Vector<int[]> points) {
+		int npoints = points.size();
+		int[] xpoints = new int[npoints];
+		int[] ypoints = new int[npoints];
+		for (int i = 0; i < npoints; i++)
+		{
+			int[] point = points.get(i);
+			if (point.length == 2)
+			{
+				xpoints[i] = point[0];
+				ypoints[i] = point[1];
+			}
+		}
+		setPolygon(xpoints, ypoints, npoints);
+	}
+	
+	//////////////////////////////////////////////// Yi ADD ON
+	public void setPolygon(int[] xpoints, int[] ypoints, int npoints) {
+		Polygon polygon = new Polygon();
+		for (int i = 0; i < npoints; i++)
+		{
+			polygon.addPoint(xpoints[i], ypoints[i]);
+		}
+	}
 	
 	
 

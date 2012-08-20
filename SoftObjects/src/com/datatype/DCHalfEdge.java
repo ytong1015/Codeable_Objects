@@ -33,7 +33,7 @@ public class DCHalfEdge implements Comparable<DCHalfEdge> {
     public Point left = null;  //pointer to site on the left side of edge
     public Point right = null; //pointer to site on the left side of edge
     public DCHalfEdge intersectedEdge = null; //edge that this edge will be added beneath if a merge takes place
-    private double length; //euclidean length of edge;
+    private double length; // length of edge;
     public int infiniteEdge = 0;
 
     

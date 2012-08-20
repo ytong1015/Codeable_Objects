@@ -24,40 +24,44 @@ import com.math.Geom;
 import com.primitive2d.Drawable;
 
 import java.awt.geom.Point2D;
-import java.util.Comparator;
 
 import processing.core.PApplet;
 
-public class Point extends Point2D implements Comparable<Point>, Drawable{
+public class Point extends Point2D implements Comparable<Point>, Drawable {
 	private double x;
 	private double y;
 	public boolean selected = false; // used for mouse events
+	
+	public Point() {
+		x = 0.0;
+		y = 0.0;
+	}
 
 	public Point(double _x, double _y) {
-		
+
 		x = _x;
 		y = _y;
-		
+
 	}
-	
-	public boolean withinRange(double range, double x, double y){
-		
-		/*if(this.getX()==0 && this.getY()==0){
-			System.out.println("comparing p1="+this.getX()+","+this.getY()+" and p2="+x+","+y+" distance ="+Geom.distance(this, new Point(x,y)));
-		}*/
-		
-		if(Geom.distance(this, new Point(x,y))<range){
+
+	public boolean withinRange(double range, double x, double y) {
+
+		/*
+		 * if(this.getX()==0 && this.getY()==0){
+		 * System.out.println("comparing p1="
+		 * +this.getX()+","+this.getY()+" and p2="
+		 * +x+","+y+" distance ="+Geom.distance(this, new Point(x,y))); }
+		 */
+
+		if (Geom.distance(this, new Point(x, y)) < range) {
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
-		/*if((Math.abs(this.getX()-x)<=range)&&(Math.abs(this.getY()-y)<=range)){
-			return true;
-		}
-		else{
-			return false;
-		}*/
+		/*
+		 * if((Math.abs(this.getX()-x)<=range)&&(Math.abs(this.getY()-y)<=range))
+		 * { return true; } else{ return false; }
+		 */
 	}
 
 	public double getX() {
@@ -71,7 +75,6 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	public void setX(double x) {
 		this.x = x;
 	}
-
 
 	public void setY(double y) {
 		this.y = y;
@@ -88,19 +91,19 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	}
 
 	public int compareTo(Point o) {
-		/*if ((this.getX() == o.getX()) && (this.getY() == o.getY())) {
-			return 0;
-		}*/
-		//System.out.println("comparing");
-		if(this.withinRange(0.1,o.getX(), o.getY())){
-			//System.out.println("within range");
+		/*
+		 * if ((this.getX() == o.getX()) && (this.getY() == o.getY())) { return
+		 * 0; }
+		 */
+		// System.out.println("comparing");
+		if (this.withinRange(0.1, o.getX(), o.getY())) {
+			// System.out.println("within range");
 
 			return 0;
-		}
-		else if (this.getY() < o.getY()) {
+		} else if (this.getY() < o.getY()) {
 			return -1;
 		}
-		//if y coords are same, check x
+		// if y coords are same, check x
 		else if (this.getY() == o.getY()) {
 			if (this.getX() < o.getX()) {
 				return -1;
@@ -113,7 +116,6 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 			return -2;
 		}
 	}
-
 
 	public Point difference(Point p) {
 		Point d = new Point(this.getX() - p.getX(), this.getY() - p.getY());
@@ -128,24 +130,23 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	}
 
 	public void scale(double scaleVal) {
-		//Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
-		this.x*=scaleVal;
-		this.y*=scaleVal;
+		// Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
+		this.x *= scaleVal;
+		this.y *= scaleVal;
 	}
 
-	
 	public void scaleX(double scaleVal) {
-		//Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
-		this.x*=scaleVal;
-		
+		// Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
+		this.x *= scaleVal;
+
 	}
 
-	
 	public void scaleY(double scaleVal) {
-		//Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
-		this.y*=scaleVal;
-		
+		// Point s = new Point(this.getX() * scaleVal, this.getY() * scaleVal);
+		this.y *= scaleVal;
+
 	}
+
 	public double angle(Point p) {
 
 		double x = p.x - this.x;
@@ -155,34 +156,30 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 	}
 
 	public void moveTo(double x, double y, Point focus) {
-        double dX = x - focus.getX();
-        
-        double dY = y - focus.getY();
+		double dX = x - focus.getX();
 
-        this.setX(dX + this.getX());
-        this.setY(dY + this.getY());
+		double dY = y - focus.getY();
 
-    }
-	
-	
-	 public void moveBy(double x, double y) {  
-	        this.setX(this.getX() + x);
-	        this.setY(this.getY() + y);
-	      
-	 }
-	
-	
-	//moves a point towards a target point by a specified distance
-	public void moveToPolar(double dist, Point _focus){
+		this.setX(dX + this.getX());
+		this.setY(dY + this.getY());
 
-		double[] pointRT = Geom.cartToPolar(this.getX() - _focus.getX(), this.getY() - _focus.getY());
+	}
+
+	public void moveBy(double x, double y) {
+		this.setX(this.getX() + x);
+		this.setY(this.getY() + y);
+
+	}
+
+	// moves a point towards a target point by a specified distance
+	public void moveToPolar(double dist, Point _focus) {
+
+		double[] pointRT = Geom.cartToPolar(this.getX() - _focus.getX(),
+				this.getY() - _focus.getY());
 		double pointTheta = pointRT[1];
 		double pointR = pointRT[0];
 
-
-		double newPointR = pointR*dist;
-
-
+		double newPointR = pointR * dist;
 
 		Point newPoint = Geom.polarToCart(newPointR, pointTheta);
 
@@ -191,64 +188,58 @@ public class Point extends Point2D implements Comparable<Point>, Drawable{
 
 	}
 
-	//moves a point towards a target point by a specified distance
-	public void moveToEuclidean(double dist, Point target){
+	// moves a point towards a target point by a specified distance
+	public void moveToEuclidean(double dist, Point target) {
 
-		double df = Math.sqrt(Math.pow(this.getX()-target.getX(),2)+Math.pow(this.getY()-target.getY(),2));
-		double dp = df-dist;
-		double x2 = target.getX() + dp/df * (this.getX()-target.getX());
-		double y2 = target.getY() + dp/df * (this.getY()-target.getY());
+		double df = Math.sqrt(Math.pow(this.getX() - target.getX(), 2)
+				+ Math.pow(this.getY() - target.getY(), 2));
+		double dp = df - dist;
+		double x2 = target.getX() + dp / df * (this.getX() - target.getX());
+		double y2 = target.getY() + dp / df * (this.getY() - target.getY());
 		this.setX(x2);
 		this.setY(y2);
 
-
 	}
-
 
 	public void rotate(double theta, Point _focus) {
 
-		double[] pointRT = Geom.cartToPolar(this.getX() - _focus.getX(), this.getY() - _focus.getY());
+		double[] pointRT = Geom.cartToPolar(this.getX() - _focus.getX(),
+				this.getY() - _focus.getY());
 		double pointTheta = pointRT[1];
 		double pointR = pointRT[0];
 
-
 		double newPointTheta = pointTheta + theta;
-
-
 
 		Point newPoint = Geom.polarToCart(pointR, newPointTheta);
 
 		this.setX(newPoint.getX() + _focus.getX());
 		this.setY(newPoint.getY() + _focus.getY());
 
-
 	}
 
 	public Point copy() {
-		return new Point(x,y);
+		return new Point(x, y);
 	}
 
-	///////////////////////////////////
-	public String toString(){
-       return "("+ x + "," + y +")";
-	 
+	// /////////////////////////////////
+	public String toString() {
+		return "(" + x + "," + y + ")";
+
 	}
-	
-	
+
 	@Override
 	public void draw(PApplet parent, float strokeWeight) {
 		parent.strokeWeight(strokeWeight);
-		parent.point((float)this.x, (float)this.y);
-		
+		parent.point((float) this.x, (float) this.y);
+
 	}
 
 	@Override
 	public void print(PApplet parent, float strokeWeight) {
 		parent.strokeWeight(strokeWeight);
-		parent.point((float)this.x, (float)this.y);
-		//TODO:implement print method
-		
-	}
-	
-}
+		parent.point((float) this.x, (float) this.y);
+		// TODO:implement print method
 
+	}
+
+}

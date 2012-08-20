@@ -24,6 +24,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	private Vector<Polygon> polygons;
 	private Vector<Ellipse> ellipses;
 	private Vector<ParamSlider> sliders;
+	private Vector<Intersection> intersections;
 	public boolean selected;
 	private double width;
 	private double height;
@@ -36,6 +37,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	public int r=0;
 	public int g=0;
 	public int b=0;
+	//public float RADIUS = 10F;//////// change to STATIC
 	
 	
 	public LineCollection(){
@@ -58,13 +60,13 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	}
 	
 	
-	public LineCollection(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses){
+	public LineCollection(Point origin, Vector<Point> points, Vector<Line> lines, Vector<Polygon> polygons,  Vector<Ellipse> ellipses, Vector<Intersection> intersections){
 		this.lines = lines;
 		this.points = points; 
 		this.polygons = polygons;
 		this.ellipses = ellipses;
+		this.intersections = intersections;
 		this.origin = origin;
-		
 	}
 	
 	
@@ -94,6 +96,22 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	
 	//=============================PRIMITIVE ADD METHODS==================================//
 	
+	//adds in a new intersection and automatically creates a new intersection if 1 or more intersections exist already
+   public void addIntersection(float x, float y, float radius){
+       Intersection intersection = new Intersection(x,y,radius);
+       this.addIntersection(intersection);
+    }
+   
+   //adds in a new intersection and automatically creates a new intersection if 1 or more intersections exist already
+   public void addIntersection(Intersection intersection){
+       intersections.add(intersection);
+	}
+	
+	//adds a line by passing in a line but does not add points to point list
+	public void addAllIntersections(Vector<Intersection> intersection) {
+					this.points.addAll(points);
+			}
+   
 	//adds in a new point and automatically creates a new line if 1 or more points exist already
 	public void addPoint(double x,double y){
 		Point point = new Point(x,y);	
@@ -109,6 +127,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 	public void addAllPoints(Vector<Point>points) {
 					this.points.addAll(points);
 			}
+	
 	//adds a line in cart mode by specifying 4 coordinates
 	public void addLine(double startX, double startY, double endX, double endY) {
 		Line line = new Line(startX,startY,endX,endY);
@@ -317,6 +336,16 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 
 	
 	//=============================PRIMITIVE GET METHODS==================================//
+	
+	////////////////////getter & setter for INTERSECTION
+	public Vector<Intersection> getIntersections() {
+		return intersections;
+	}
+
+
+	public void setIntersections(Vector<Intersection> intersections) {
+		this.intersections = intersections;
+	}
 	
 	public Vector<Point> getAllPoints(){
 		return this.points;
@@ -646,7 +675,7 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 			ellipses.add(ellipse);
 		}
 		
-		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses);
+		LineCollection newLineCollection =  new LineCollection(newOrigin, points, lines, polygons, ellipses,intersections);
 		
 		//newLineCollection.reLinkLines();
 		
@@ -752,7 +781,8 @@ public class LineCollection extends DCFace implements Drawable, Turtle{
 		
 		TurtleStruct.angle = theta;
 	}
-	
+
+
 
 	
 }
